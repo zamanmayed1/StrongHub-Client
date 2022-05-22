@@ -7,7 +7,7 @@ import Footer from './Components/Footer';
 
 function App() {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto bg-base-100">
       <Navbar/>
      <Routes>
        <Route path='/' element={<Home></Home>}></Route>

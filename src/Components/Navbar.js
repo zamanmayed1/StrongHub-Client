@@ -1,16 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import CustomLink from './CustomLink';
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100 ">
+        <div className="navbar  mb-3 bg-base-100 ">
             <div className="navbar-start ">
 
                 <h1 className='text-2xl text-left font-bold text-red-500'>Strong Hub</h1>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
-                    <li className='mx-2 font-bold '><NavLink to={'/'}>Home</NavLink></li>
+                    <li className='mx-2 font-bold '><CustomLink to={'/'}>Home</CustomLink></li>
+                    <li className='mx-2 font-bold '><CustomLink to={'/products'}>Products</CustomLink></li>
 
 
 
@@ -24,7 +26,7 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
 
-                        <li className='mx-2 my-1 font-bold '><NavLink to={'/'}>Home</NavLink></li>
+                        <li className='mx-2 font-bold '><CustomLink to={'/'}>Home</CustomLink></li>
 
 
 
