@@ -3,6 +3,7 @@ import Footer from '../../Components/Footer';
 import Navbar from '../../Components/Navbar';
 import Banner from './Banner';
 import BusinessSummary from './BusinessSummary';
+import OurPartners from './OurPartners';
 import OurTeam from './OurTeam';
 
 import Reviews from './Reviews';
@@ -16,7 +17,7 @@ const Home = () => {
             <BusinessSummary/>
             <Reviews/>
             <OurTeam/>
-
+            <OurPartners/>
 
         </div>
     );
