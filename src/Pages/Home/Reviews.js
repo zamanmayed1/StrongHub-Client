@@ -37,7 +37,7 @@ const Reviews = () => {
                        <p> Rating Count : <span className='text-yellow-500 font-bold'>4 Starts</span> </p>
                     </div>
                 </div>
-                <div class="card w-96 bg-base-100 shadow-xl image-full">
+                <div class="card w-96 bg-base-200 shadow-xl image-full">
                     <figure><img src="https://www.elegantthemes.com/blog/wp-content/uploads/2017/05/design-review.png" alt="Shoes" /></figure>
                     <div class="card-body">
                         <h2 class="card-title">Alex Jhon</h2>
