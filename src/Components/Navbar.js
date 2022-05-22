@@ -13,6 +13,7 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal p-0">
                     <li className='mx-2 font-bold '><CustomLink to={'/'}>Home</CustomLink></li>
                     <li className='mx-2 font-bold '><CustomLink to={'/products'}>Products</CustomLink></li>
+                    <li className='mx-2 font-bold '><CustomLink to={'/blogs'}>Blogs</CustomLink></li>
 
 
 
@@ -28,6 +29,7 @@ const Navbar = () => {
 
                         <li className='mx-2 font-bold '><CustomLink to={'/'}>Home</CustomLink></li>
                         <li className='mx-2 font-bold '><CustomLink to={'/products'}>Products</CustomLink></li>
+                        <li className='mx-2 font-bold '><CustomLink to={'/blogs'}>Blogs</CustomLink></li>
 
 
 
