@@ -9,6 +9,8 @@ import Products from './Pages/Products/Products';
 import Blog from './Pages/Blog/Blog';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
+import Purchase from './Pages/Purchase/Purchase';
+import RequireAuth from './Components/RequireAuth';
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/products' element={<Products></Products>}></Route>
         <Route path='/blogs' element={<Blog />}></Route>
+        <Route path='/purchase/:id' element={<RequireAuth><Purchase /></RequireAuth>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='*' element={<ErrorPage />}></Route>

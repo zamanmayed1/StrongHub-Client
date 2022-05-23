@@ -1,6 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Tools = () => {
+    const navigate = useNavigate()
+    const placeOrder = (id) => {
+       navigate(`/purchase/${id}`)
+    }
     return (
         <div>
             <h2 className='text-3xl font-bold text-primary text-center my-5'>Tools</h2>
@@ -13,11 +18,11 @@ const Tools = () => {
                         <h2 className="card-title">Super mm 5Pxz Hammer </h2>
                         <p>If a dog chews Hammer whose Hammer does he choose?</p>
                         <p >Price : <span className='text-xl font-bold'>$35</span> per piece</p>
-                        
+
                         <p>Available Quantity : 500 </p>
                         <p>Minimum Quantity : 100 </p>
                         <div className="card-actions justify-start">
-                            <button className="btn  btn-secondary">Place Order</button>
+                            <button onClick={() => placeOrder('125411')} className="btn  btn-secondary">Place Order</button>
                         </div>
                     </div>
                 </div>
