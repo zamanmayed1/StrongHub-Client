@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className="navbar  mb-3 bg-base-100 ">
             <div className="navbar-start ">
 
-                <h1 className='text-2xl text-left font-bold text-red-500'>Strong Hub</h1>
+                <h1 className='text-3xl text-left font-bold text-primary'>Strong Hub</h1>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

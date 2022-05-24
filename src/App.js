@@ -11,6 +11,10 @@ import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import Purchase from './Pages/Purchase/Purchase';
 import RequireAuth from './Components/RequireAuth';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import Myprofile from './Pages/Dashboard/Myprofile';
+import Myorders from './Pages/Dashboard/Myorders';
+import Addareview from './Pages/Dashboard/Addareview';
 
 function App() {
   return (
@@ -21,6 +25,12 @@ function App() {
         <Route path='/products' element={<Products></Products>}></Route>
         <Route path='/blogs' element={<Blog />}></Route>
         <Route path='/purchase/:id' element={<RequireAuth><Purchase /></RequireAuth>}></Route>
+        <Route path='/dashboard' element={<Dashboard></Dashboard>}>
+          <Route index  element={<Myprofile />}></Route>
+          <Route path='myorder' element={<Myorders />}></Route>
+          <Route path='addareview' element={<Addareview />}></Route>
+
+        </Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='*' element={<ErrorPage />}></Route>

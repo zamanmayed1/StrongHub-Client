@@ -20,7 +20,7 @@ const Signup = () => {
         );
     }
     if (loading) {
-        return <progress class="progress w-56"></progress>;
+        return <progress class="progress w-56 mx-auto mb-96"></progress>;
     }
     if (user) {
         navigate(from, { replace: true });
