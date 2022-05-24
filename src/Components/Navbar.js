@@ -22,6 +22,7 @@ const Navbar = () => {
                     <li className='mx-2 font-bold '><CustomLink to={'/'}>Home</CustomLink></li>
                     <li className='mx-2 font-bold '><CustomLink to={'/products'}>Products</CustomLink></li>
                     <li className='mx-2 font-bold '><CustomLink to={'/blogs'}>Blogs</CustomLink></li>
+                    <li className='mx-2 font-bold '><CustomLink to={'/myportfolio'}>My Portfolio</CustomLink></li>
                     {
                         user && <>
                             <li className='mx-2 font-bold '><CustomLink to={'/dashboard'}>Dashboard</CustomLink></li>

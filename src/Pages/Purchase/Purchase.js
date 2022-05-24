@@ -48,8 +48,6 @@ const Purchase = () => {
         }
         console.log(orderData);
 
-
-
     }
     return (
         <div>

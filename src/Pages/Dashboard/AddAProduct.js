@@ -5,6 +5,20 @@ const AddAProduct = () => {
     const [user] = useAuthState(auth)
 
     const addProduct = (e) => {
+        e.preventDefault()
+        const productname = e.target.productname.value
+        const description = e.target.text.value
+        // Image Baki
+        const price = e.target.price.value
+        const minimumQuantity = e.target.minimumQuantity.value
+        const availableQuantity = e.target.availableQuantity.value
+        const name = e.target.name.value
+        const email = e.target.email.value
+        const Data = {
+            productname, description, price, minimumQuantity, availableQuantity, name, email
+        }
+        console.log(Data);
+
 
     }
     return (
@@ -23,12 +37,12 @@ const AddAProduct = () => {
 
 
                 <span class="label-text">Price</span>
-                <input name='minimumQuantity' type="number" class="input block input-bordered bg-[#F0F6FF] my-2  font-bold  w-full  " />
+                <input name='price' type="number" class="input block input-bordered bg-[#F0F6FF] my-2  font-bold  w-full  " />
 
                 <span class="label-text">Minimum Order Quantity</span>
                 <input name='minimumQuantity' type="number" class="input block input-bordered bg-[#F0F6FF] my-2  font-bold  w-full  " />
 
-                <span class="label-text">Available Order Quantity</span>
+                <span class="label-text">Available Quantity</span>
                 <input name='availableQuantity' type="number" class="input block input-bordered bg-[#F0F6FF] my-2  font-bold  w-full  " />
                 <span class="label-text">Your Name</span>
                 <input name='name' value={user?.displayName} type="text" class="input block input-bordered my-2 font-bold  w-full  " />
