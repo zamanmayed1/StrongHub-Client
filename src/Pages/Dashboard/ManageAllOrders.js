@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Myorders = () => {
+const ManageAllOrders = () => {
     return (
-        <div className='my-4'>
-            <p className='text-xl font-bold text-center'>My Orders</p>
+        <div>
+           <p className='text-xl font-bold text-center'>Manage All Orders</p>
+            <div className='my-4'>
             <div class="overflow-x-auto">
                 <table class="table table-zebra w-full">
 
@@ -41,7 +42,8 @@ const Myorders = () => {
                 </table>
             </div>
         </div>
+        </div>
     );
 };
 
-export default Myorders;
+export default ManageAllOrders;

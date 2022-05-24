@@ -25,7 +25,7 @@ const Purchase = () => {
             window.scroll({
                 top: 1000,
                 behavior: 'smooth'
-              });
+            });
         }
 
     }
@@ -90,7 +90,6 @@ const Purchase = () => {
                     <input name='productname' value={'Super mm 5Pxz Hammer'} type="text" class="input block input-bordered my-2 font-bold  w-full  " disabled />
                     <span class="label-text">Order Quantity</span>
                     <input name='productQuantity' type="number" class="input block input-bordered bg-[#F0F6FF] my-2  font-bold  w-full  " value={orderQnty} disabled />
-                    <p className='text-orange-600'>{warning}</p>
                     <span class="label-text">Your Name</span>
                     <input name='name' value={user?.displayName} type="text" class="input block input-bordered my-2 font-bold  w-full  " disabled />
                     <span class="label-text">Your Email</span>

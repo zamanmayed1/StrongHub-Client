@@ -1,18 +1,18 @@
 import React from 'react';
 
-const Myorders = () => {
+const MakeAdmin = () => {
     return (
-        <div className='my-4'>
-            <p className='text-xl font-bold text-center'>My Orders</p>
+        <div>
+            <p className='text-xl font-bold text-center'>Make Admin</p>
             <div class="overflow-x-auto">
                 <table class="table table-zebra w-full">
 
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Favorite Color</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,4 +44,4 @@ const Myorders = () => {
     );
 };
 
-export default Myorders;
+export default MakeAdmin;
