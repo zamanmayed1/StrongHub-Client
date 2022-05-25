@@ -4,13 +4,14 @@ import auth from '../../Firebase/Firebase.init';
 
 const Myprofile = () => {
     const [user] = useAuthState(auth)
+
     const [userabout, setUserabout] = useState()
     const [trogle, setTroggle] = useState('none')
-    // const [btntrogle, setBTNTroggle] = useState('block')
+
+    
 
     const addmore = () => {
         setTroggle('block')
-
     }
     // Load USer Profile Data
 
@@ -25,6 +26,7 @@ const Myprofile = () => {
 
     const about = (e) => {
         e.preventDefault()
+
         const email = user?.email
         const education = e.target.education.value
         const location = e.target.location.value
@@ -55,7 +57,7 @@ const Myprofile = () => {
             <h1 className='text-xl text-center font-bold text-primary'>Welcome, <span className='text-orange-600'>{user?.displayName} </span> To Your Profile,</h1>
             <div className='card text-left flex max-w-md border mx-auto shadow-md my-4 p-5'>
                 <div>
-                    <img className='rounded-full w-28 ring-2 mx-auto' src={user.photoURL ? user.photoURL : "https://i.ibb.co/DGFwPp9/de7834s-6515bd40-8b2c-4dc6-a843-5ac1a95a8b55.jpg"} />
+                    <img className='rounded-full w-28 ring-2 mx-auto' src={!user?.photoURL ? "https://i.ibb.co/DGFwPp9/de7834s-6515bd40-8b2c-4dc6-a843-5ac1a95a8b55.jpg" : user?.photoURL} />
                 </div>
                 <div>
                     <h3 className='text-2xl text-center font-bold text-gray-800'>{user?.displayName} </h3>

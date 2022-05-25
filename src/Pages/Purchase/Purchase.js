@@ -54,7 +54,7 @@ const Purchase = () => {
             phone: phone,
             address: address,
         }
-        console.log(orderData);
+
         const url = 'http://localhost:5000/addorder'
         fetch(url, {
             method: 'POST',
@@ -67,10 +67,10 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    console.log('Product Added Boss');
+        
                     let updatedProduct = availableQuantity - Number(orderData.productQuantity)
                     let reamining = Number(updatedProduct)
-                    console.log(reamining);
+    
                     fetch(`http://localhost:5000/product/${id}`, {
                         method: 'PUT',
                         headers: {

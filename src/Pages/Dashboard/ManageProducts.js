@@ -8,16 +8,12 @@ const ManageProducts = () => {
             .then(data => setProducts(data))
     }, [])
     const deleteProduct = (id) => {
-
-
-
         fetch(`http://localhost:5000/product/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
             .then(data => console.log(data))
 
-        console.log(id);
     }
     return (
         <div className='p-5'>
@@ -36,7 +32,7 @@ const ManageProducts = () => {
                     <tbody>
 
                         {
-                            products?.map(product => <tr>
+                            products?.map(product => <tr key={product._id}>
                                 <th><img className='w-8 h-8' src={product.img} alt="" /></th>
                                 <td>{product.productname}</td>
                                 <td>{product.availableQuantity <= 0 ? <span className='text-red-500'>Out Of Stock</span> : product.availableQuantity}</td>

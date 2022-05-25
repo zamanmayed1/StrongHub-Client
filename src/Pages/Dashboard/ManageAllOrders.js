@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ManageAllOrders = () => {
+    const [orders, setOrders] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/orders')
+            .then(res => res.json())
+            .then(data => setOrders(data))
+    }, [orders])
     return (
         <div>
             <p className='text-xl font-bold text-center'>Manage All Orders</p>
@@ -10,34 +16,36 @@ const ManageAllOrders = () => {
 
                         <thead>
                             <tr>
-                                <th></th>
-                                <th>Product</th>
+
+                                <th>Name</th>
                                 <th>Quantity</th>
-                                <th>Favorite Color</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            <tr>
-                                <th>1</th>
-                                <td>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td>Blue</td>
-                            </tr>
+                            {
+                                orders?.map(order => <tr key={order?._id}>
 
-                            <tr>
-                                <th>2</th>
-                                <td>Hart Hagerty</td>
-                                <td>Desktop Support Technician</td>
-                                <td>Purple</td>
-                            </tr>
+                                    <td>{order.productname}</td>
+                                    <td>{order.productQuantity}</td>
+                                    <td>{order.phone}</td>
+                                    <td>{order.email}</td>
+                                    <td><select className="select select-bordered w-32">
+                                        <option selected>Unpaid</option>
+                                        <option>Paid</option>
+                                        <option>Packaging</option>
+                                        <option>Shipped</option>
+                                        <option>Completed</option>
+                                    </select>
+                                        <button className='btn-secondary mx-2 btn'>Cancel</button>
+                                    </td>
+                                </tr>)
+                            }
 
-                            <tr>
-                                <th>3</th>
-                                <td>Brice Swyre</td>
-                                <td>Tax Accountant</td>
-                                <td>Red</td>
-                            </tr>
+
                         </tbody>
                     </table>
                 </div>

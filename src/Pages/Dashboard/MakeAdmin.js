@@ -1,42 +1,58 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const MakeAdmin = () => {
+    const [users, setUsers] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/users')
+            .then(res => res.json())
+            .then(data => setUsers(data))
+    }, [users])
+    const makeAdmin = (email) => {
+        fetch(`http://localhost:5000/user/admin/${email}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `Barer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 403) {
+
+
+                }
+                return res.json()
+            })
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+
+                }
+
+            })
+    }
     return (
         <div className='p-5'>
-            <p className='text-xl font-bold text-center'>Make Admin</p>
+            <p className='text-xl font-bold text-center my-2'>Make Admin</p>
             <div className="overflow-x-auto">
-                <table className="table table-zebra w-full">
+                <table className="table table-zebra mx-auto max-w-2xl w-full md:w-2/4">
 
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>Name</th>
                             <th>Email</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        <tr>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>Blue</td>
-                        </tr>
+                        {
+                            users?.map(user => <tr key={user?._id}>
 
-                        <tr>
-                            <th>2</th>
-                            <td>Hart Hagerty</td>
-                            <td>Desktop Support Technician</td>
-                            <td>Purple</td>
-                        </tr>
+                                <td>{user.email}</td>
+                                <td> {user.role !== 'admin' && <button onClick={() => makeAdmin(user?.email)} className='btn btn-secondary'>Make Admin</button>}</td>
 
-                        <tr>
-                            <th>3</th>
-                            <td>Brice Swyre</td>
-                            <td>Tax Accountant</td>
-                            <td>Red</td>
-                        </tr>
+
+                            </tr>)
+                        }
+
                     </tbody>
                 </table>
             </div>

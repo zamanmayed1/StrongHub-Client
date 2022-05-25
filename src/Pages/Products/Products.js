@@ -7,7 +7,7 @@ const Products = () => {
         navigate(`/purchase/${id}`)
     }
     const [products, setProducts] = useState([])
-    console.log(products);
+
     useEffect(() => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
@@ -28,7 +28,7 @@ const Products = () => {
                             <p>{product.description.slice(0, 40)} <span title={product.description}>[...]</span> </p>
                             <p >Price : <span className='text-xl font-bold'>${product.price}</span> per piece</p>
 
-                          
+
                             <p>{product.availableQuantity <= 0 ? <span className='text-red-500'>Out Of Stock</span> : product.availableQuantity}</p>
                             <p>Minimum Quantity : {product.minimumQuantity}</p>
                             <div className="card-actions justify-start">

@@ -13,7 +13,7 @@ const Addareview = () => {
         const ratingCount = e.target.ratingCount.value
         const review = e.target.text.value
         const data = { userName, ratingCount, review }
-        console.log(data);
+
         // /addreview
         const url = 'http://localhost:5000/addreview'
         fetch(url, {

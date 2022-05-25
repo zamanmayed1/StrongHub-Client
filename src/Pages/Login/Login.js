@@ -44,7 +44,7 @@ const Login = () => {
                         localStorage.setItem('accessToken', data.accessToken);
 
                     }
-                    console.log(data);
+              
                 })
         }
 
