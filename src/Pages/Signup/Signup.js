@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../../Components/Hooks/useToken';
 import SocialSignin from '../../Components/SocialSignin';
 import auth from '../../Firebase/Firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const Signup = () => {
+    const [signInWithGoogle, Googleuser, Googleloading, Googleerror] = useSignInWithGoogle(auth);
+    const [createUserWithEmailAndPassword, newuser, loading, error] = useCreateUserWithEmailAndPassword(auth);
     const [displayName, setDisplayName] = useState('');
-    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile] = useUpdateProfile(auth);
+    const [token] = useToken(newuser || Googleuser)
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -20,9 +25,9 @@ const Signup = () => {
         );
     }
     if (loading) {
-        return <progress class="progress w-56 mx-auto mb-96"></progress>;
+        return <progress className="progress w-56 mx-auto mb-96"></progress>;
     }
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
     }
 
@@ -102,7 +107,19 @@ const Signup = () => {
                             </div>
 
 
-                            <SocialSignin />
+                            <button onClick={() => signInWithGoogle()} className='w-full'>
+                                <a
+                                    className="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center bg-[#55acee]"
+
+
+                                    role="button"
+                                    data-mdb-ripple="true"
+                                    data-mdb-ripple-color="light"
+                                >
+
+                                    Continue with Google
+                                </a>
+                            </button>
                         </form>
                         <div className="text-grey-dark mt-6">
                             Already Have an Account ?

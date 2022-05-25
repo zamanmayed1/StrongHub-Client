@@ -7,29 +7,57 @@ import auth from '../../Firebase/Firebase.init';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import useToken from '../../Components/Hooks/useToken';
 
 
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [alltypeuser] = useAuthState(auth)
-    let navigate = useNavigate();
-    let location = useLocation();
-    let from = location.state?.from?.pathname || "/";
+    const [signInWithGoogle, Googleuser, Googleloading, Googleerror] = useSignInWithGoogle(auth);
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-    const [signInWithEmailAndPassword,user,loading,error] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+    const [email, setEmail] = useState('');
+    let navigate = useNavigate();
+    const [token] = useToken(user || Googleuser)
+    let location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+
+   
+
     const login = e => {
         e.preventDefault()
         const email = e.target.email.value
         const password = e.target.password.value
         signInWithEmailAndPassword(email, password)
+        if (email) {
+
+            fetch(`http://localhost:5000/user/${email}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({ email })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        localStorage.setItem('accessToken', data.accessToken);
+
+                    }
+                    console.log(data);
+                })
+        }
+
     }
+
+
     const resetPassword = async () => {
         await sendPasswordResetEmail(email);
         if (email) {
             toast.success("Eamil Sent !")
         }
-        else{
-            toast.error("Eamil Not Found")  
+        else {
+            toast.error("Eamil Not Found")
         }
     }
 
@@ -41,11 +69,13 @@ const Login = () => {
         );
     }
     if (loading) {
-        return <progress class="progress w-56 mx-auto mb-96"></progress>;
+        return <progress className="progress w-56 mx-auto mb-96"></progress>;
     }
-    if (user || alltypeuser) {
+    if (token) {
         navigate(from, { replace: true });
     }
+
+
     return (
         <section className="md:h-[80vh] mb-14">
             <div className="container px-6 py-12 h-full">
@@ -111,7 +141,19 @@ const Login = () => {
                             </div>
 
 
-                            <SocialSignin />
+                            <button onClick={() => signInWithGoogle()} className='w-full'>
+                                <a
+                                    className="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center bg-[#55acee]"
+
+
+                                    role="button"
+                                    data-mdb-ripple="true"
+                                    data-mdb-ripple-color="light"
+                                >
+
+                                    Continue with Google
+                                </a>
+                            </button>
                         </form>
                         <div className="text-grey-dark mt-6">
                             New to Strong Hub ?

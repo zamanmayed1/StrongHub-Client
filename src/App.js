@@ -30,17 +30,17 @@ function App() {
         <Route path='/products' element={<Products></Products>}></Route>
         <Route path='/blogs' element={<Blog />}></Route>
         <Route path='/purchase/:id' element={<RequireAuth><Purchase /></RequireAuth>}></Route>
-        <Route path='/dashboard' element={<Dashboard></Dashboard>}>
+        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
           <Route index element={<Myprofile />}></Route>
           <Route path='myorder' element={<Myorders />}></Route>
           <Route path='addareview' element={<Addareview />}></Route>
           <Route path='manageallorders' element={<ManageAllOrders />}></Route>
           <Route path='addaproduct' element={<AddAProduct />}></Route>
-          <Route path='makeadmin' element={<MakeAdmin/>}></Route>
-          <Route path='manageproduct' element={<ManageProducts/>}></Route>
+          <Route path='makeadmin' element={<MakeAdmin />}></Route>
+          <Route path='manageproduct' element={<ManageProducts />}></Route>
 
         </Route>
-        <Route path='/myportfolio' element={<MyPortfolio/>}></Route>
+        <Route path='/myportfolio' element={<MyPortfolio />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='*' element={<ErrorPage />}></Route>

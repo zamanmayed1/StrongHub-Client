@@ -35,7 +35,10 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {
-                    user?.email ? <button onClick={() => signOut(auth)} className='bg-red-600 btn'>Sign Out</button> :
+                    user?.email ? <button onClick={() => {
+                        signOut(auth)
+                        localStorage.removeItem('accessToken')
+                    }} className='bg-red-600 btn'>Sign Out</button> :
                         <button className='btn-primary btn'> <Link to={'/login'} >Log In</Link></button>
                 }
 

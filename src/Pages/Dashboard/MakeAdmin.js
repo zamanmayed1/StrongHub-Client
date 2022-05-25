@@ -2,10 +2,10 @@ import React from 'react';
 
 const MakeAdmin = () => {
     return (
-        <div>
+        <div className='p-5'>
             <p className='text-xl font-bold text-center'>Make Admin</p>
-            <div class="overflow-x-auto">
-                <table class="table table-zebra w-full">
+            <div className="overflow-x-auto">
+                <table className="table table-zebra w-full">
 
                     <thead>
                         <tr>

@@ -33,24 +33,24 @@ const MyPortfolio = () => {
                         <div className=' flex justify-center items-center'>
                             <div>
                                 <img className='rounded-full mx-auto ring-2 w-28' src="https://i.ibb.co/JdZJC8x/275331542-273973154867778-103572550779029173-n-1-removebg-preview.png" alt="" />
-                                <div class="stats stats-vertical lg:stats-horizontal shadow gap-2">
+                                <div className="stats stats-vertical lg:stats-horizontal shadow gap-2">
 
-                                    <div class="stat my-1">
-                                        <div class="stat-title">Projects</div>
-                                        <div class="stat-value">15+</div>
-                                        <div class="stat-desc">Jan 1st - Feb 1st</div>
+                                    <div className="stat my-1">
+                                        <div className="stat-title">Projects</div>
+                                        <div className="stat-value">15+</div>
+                                        <div className="stat-desc">Jan 1st - Feb 1st</div>
                                     </div>
 
-                                    <div class="stat my-1">
-                                        <div class="stat-title">Happy Clients</div>
-                                        <div class="stat-value">7+</div>
-                                        <div class="stat-desc">↗︎ 7 (98%)</div>
+                                    <div className="stat my-1">
+                                        <div className="stat-title">Happy Clients</div>
+                                        <div className="stat-value">7+</div>
+                                        <div className="stat-desc">↗︎ 7 (98%)</div>
                                     </div>
 
-                                    <div class="stat my-1">
-                                        <div class="stat-title">Problem Solving</div>
-                                        <div class="stat-value">73+</div>
-                                        <div class="stat-desc">↗︎ 25 (98%)</div>
+                                    <div className="stat my-1">
+                                        <div className="stat-title">Problem Solving</div>
+                                        <div className="stat-value">73+</div>
+                                        <div className="stat-desc">↗︎ 25 (98%)</div>
                                     </div>
 
                                 </div>
@@ -84,13 +84,13 @@ const MyPortfolio = () => {
                         <div className='flex flex-col  justify-center '>
                             <div>
                                 <span className='block my-1 font-bold  '>HTML</span>
-                                <progress class="progress progress-primary w-full max-w-md" value="90" max="100"></progress>
+                                <progress className="progress progress-primary w-full max-w-md" value="90" max="100"></progress>
                                 <span className='block progress-error my-1 font-bold  '>CSS</span>
-                                <progress class="progress w-full max-w-md" value="85" max="100"></progress>
+                                <progress className="progress w-full max-w-md" value="85" max="100"></progress>
                                 <span className='block  my-1 font-bold  '>JAVASCRIPT</span>
-                                <progress class="progress progress-success w-full max-w-md" value="75" max="100"></progress>
+                                <progress className="progress progress-success w-full max-w-md" value="75" max="100"></progress>
                                 <span className='block  my-1 font-bold  '>React</span>
-                                <progress class="progress progress-info w-full max-w-md" value="80" max="100"></progress>
+                                <progress className="progress progress-info w-full max-w-md" value="80" max="100"></progress>
                             </div>
                         </div>
 
@@ -101,51 +101,51 @@ const MyPortfolio = () => {
                     <h1 className='text-xl mb-6 font-bold text-primary text-center'>My Projects</h1>
                     <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center item-center'>
                         {/* Stock Room */}
-                        <div class="card w-96 bg-base-100 shadow-xl p-1">
+                        <div className="card w-96 bg-base-100 shadow-xl p-1">
                             <figure><img className='border-2 border-gray-900 rounded-md' src="https://i.ibb.co/Fb78C8g/mobile-6.png" alt="Shoes" /></figure>
-                            <div class="card-body">
-                                <h2 class="card-title">
+                            <div className="card-body">
+                                <h2 className="card-title">
                                     Stock Room
-                                    <div class="badge badge-secondary">NEW</div>
+                                    <div className="badge badge-secondary">NEW</div>
                                 </h2>
                                 <p>Stock Room is a werehouse Website.</p>
-                                <div class="card-actions justify-end">
-                                    <div class="badge badge-outline">Werehouse</div>
-                                    <div class="badge badge-outline">Full Stack</div>
+                                <div className="card-actions justify-end">
+                                    <div className="badge badge-outline">Werehouse</div>
+                                    <div className="badge badge-outline">Full Stack</div>
                                 </div>
                                 <button className='btn mt-2'><a target={'_blank'} href="https://stockroom-97369.web.app/">Visite Site</a></button>
 
                             </div>
                         </div>
                         {/* Strong Hub */}
-                        <div class="card w-96 bg-base-100 shadow-xl p-1">
+                        <div className="card w-96 bg-base-100 shadow-xl p-1">
                             <figure><img className='border-2 border-gray-900 rounded-md' src="https://i.ibb.co/pZSNXz1/mobile-5.png" alt="Shoes" /></figure>
-                            <div class="card-body">
-                                <h2 class="card-title">
+                            <div className="card-body">
+                                <h2 className="card-title">
                                     Strong Hub
-                                    <div class="badge badge-secondary">Pending</div>
+                                    <div className="badge badge-secondary">Pending</div>
                                 </h2>
                                 <p>Strong Hub is a  manufacturer Website.</p>
-                                <div class="card-actions justify-end">
-                                    <div class="badge badge-outline">Manufacturer</div>
-                                    <div class="badge badge-outline">Full Stack</div>
+                                <div className="card-actions justify-end">
+                                    <div className="badge badge-outline">Manufacturer</div>
+                                    <div className="badge badge-outline">Full Stack</div>
                                 </div>
                                 <button className='btn mt-2'><a target={'_blank'} href="https://stronghub-9986c.web.app/">Visite Site</a></button>
 
                             </div>
                         </div>
                         {/* Coffee */}
-                        <div class="card w-96 bg-base-100 shadow-xl p-1">
+                        <div className="card w-96 bg-base-100 shadow-xl p-1">
                             <figure><img className='border-2 border-gray-900 rounded-md' src="https://i.ibb.co/266dn29/mobile-7.png" alt="Shoes" /></figure>
-                            <div class="card-body">
-                                <h2 class="card-title">
+                            <div className="card-body">
+                                <h2 className="card-title">
                                     Fatobook
-                                    <div class="badge badge-secondary">Old</div>
+                                    <div className="badge badge-secondary">Old</div>
                                 </h2>
                                 <p>Fatobook is a Resturant Website.</p>
-                                <div class="card-actions justify-end">
-                                    <div class="badge badge-outline">Resturant</div>
-                                    <div class="badge badge-outline">Full Stack</div>
+                                <div className="card-actions justify-end">
+                                    <div className="badge badge-outline">Resturant</div>
+                                    <div className="badge badge-outline">Full Stack</div>
                                 </div>
                                 <button className='btn mt-2'><a target={'_blank'} href="https://foodbababd.netlify.app/">Visite Site</a></button>
 
