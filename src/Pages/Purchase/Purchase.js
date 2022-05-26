@@ -13,7 +13,7 @@ const Purchase = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${id}`)
+        fetch(`https://stronghub.herokuapp.com/product/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [product])
@@ -53,9 +53,10 @@ const Purchase = () => {
             email: email,
             phone: phone,
             address: address,
+            price: price
         }
 
-        const url = 'http://localhost:5000/addorder'
+        const url = 'https://stronghub.herokuapp.com/addorder'
         fetch(url, {
             method: 'POST',
             headers: {
@@ -67,11 +68,11 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-        
+
                     let updatedProduct = availableQuantity - Number(orderData.productQuantity)
                     let reamining = Number(updatedProduct)
-    
-                    fetch(`http://localhost:5000/product/${id}`, {
+
+                    fetch(`https://stronghub.herokuapp.com/product/${id}`, {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'
@@ -123,7 +124,7 @@ const Purchase = () => {
                 <h1 className='text-2xl font-bold backdrop-opacity-75	 text-gray-900 text-center my-3'>Place Your Order</h1>
                 <form onSubmit={placeorder} className='md:w-2/4 mx-auto my-3'>
                     <span className="label-text">Product Name</span>
-                    <input name='productname' value={'Super mm 5Pxz Hammer'} type="text" className="input block input-bordered my-2 font-bold  w-full  " disabled />
+                    <input name='productname' value={productname} type="text" className="input block input-bordered my-2 font-bold  w-full  " disabled />
                     <span className="label-text">Order Quantity</span>
                     <input name='productQuantity' type="number" className="input block input-bordered bg-[#F0F6FF] my-2  font-bold  w-full  " value={orderQnty} disabled />
                     <span className="label-text">Your Name</span>

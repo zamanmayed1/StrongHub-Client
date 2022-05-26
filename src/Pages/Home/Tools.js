@@ -8,7 +8,7 @@ const Tools = () => {
     }
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://stronghub.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -17,7 +17,7 @@ const Tools = () => {
             <h2 className='text-3xl font-bold text-primary text-center my-5'>Tools</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 p-10  justify-center">
                 {
-                    products.slice(0,6).map(product => <div key={product._id} className="card w-96 bg-base-100 shadow-xl">
+                    products.slice(0, 6).map(product => <div key={product._id} className="card w-96 bg-base-100 shadow-xl">
                         <figure className='shadow-md p-2'><img className='h-60' src={product.img} alt="Hammer" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{product.productname}</h2>

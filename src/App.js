@@ -21,6 +21,7 @@ import MakeAdmin from './Pages/Dashboard/MakeAdmin';
 import ManageProducts from './Pages/Dashboard/ManageProducts';
 import MyPortfolio from './Pages/MyPortfolio';
 import RequierAdmin from './Components/RequierAdmin';
+import Payment from './Components/Payment'
 
 function App() {
   return (
@@ -33,12 +34,13 @@ function App() {
         <Route path='/purchase/:id' element={<RequireAuth><Purchase /></RequireAuth>}></Route>
         <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
           <Route index element={<Myprofile />}></Route>
+          <Route path='payment/:id' element={<Payment />}></Route>
           <Route path='myorder' element={<Myorders />}></Route>
           <Route path='addareview' element={<Addareview />}></Route>
-          <Route path='manageallorders' element={<RequierAdmin><ManageAllOrders /></RequierAdmin>}></Route>
-          <Route path='addaproduct' element={<RequierAdmin><AddAProduct /></RequierAdmin>}></Route>
-          <Route path='makeadmin' element={<RequierAdmin><MakeAdmin /></RequierAdmin>}></Route>
-          <Route path='manageproduct' element={<RequierAdmin><ManageProducts /></RequierAdmin>}></Route>
+          <Route path='manageallorders' element={<ManageAllOrders />}></Route>
+          <Route path='addaproduct' element={<AddAProduct />}></Route>
+          <Route path='makeadmin' element={<MakeAdmin />}></Route>
+          <Route path='manageproduct' element={<ManageProducts />}></Route>
 
         </Route>
         <Route path='/myportfolio' element={<MyPortfolio />}></Route>

@@ -15,7 +15,7 @@ const Addareview = () => {
         const data = { userName, ratingCount, review }
 
         // /addreview
-        const url = 'http://localhost:5000/addreview'
+        const url = 'https://stronghub.herokuapp.com/addreview'
         fetch(url, {
             method: 'POST',
             headers: {

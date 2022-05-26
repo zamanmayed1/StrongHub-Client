@@ -8,7 +8,7 @@ const Myprofile = () => {
     const [userabout, setUserabout] = useState()
     const [trogle, setTroggle] = useState('none')
 
-    
+
 
     const addmore = () => {
         setTroggle('block')
@@ -16,7 +16,7 @@ const Myprofile = () => {
     // Load USer Profile Data
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myfrofiledata/${user?.email}`)
+        fetch(`https://stronghub.herokuapp.com/myfrofiledata/${user?.email}`)
             .then(res => res.json())
             .then(data => setUserabout(data[0]))
     }, [])
@@ -34,7 +34,7 @@ const Myprofile = () => {
         const linkedin = e.target.linkedin.value
         const about = { education, location, phonenumber, linkedin, email }
         // Upload USer All Data
-        fetch(`http://localhost:5000/myprofile/${email}`, {
+        fetch(`https://stronghub.herokuapp.com/myprofile/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -61,7 +61,7 @@ const Myprofile = () => {
                 </div>
                 <div>
                     <h3 className='text-2xl text-center font-bold text-gray-800'>{user?.displayName} </h3>
-                    <h3 className=' text-center font-bold text-gray-800'>{user?.email} </h3>
+                    <h3 className=' text-center font-bold text-gray-800 '>{user?.email} </h3>
                     <h3 className=' text-center font-bold text-gray-800'>{userabout?.education} </h3>
                     <h3 className=' text-center font-bold text-gray-800'>{userabout?.location} </h3>
                     <h3 className=' text-center font-bold text-gray-800'>{userabout?.phonenumber} </h3>

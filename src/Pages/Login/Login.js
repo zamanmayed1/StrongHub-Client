@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialSignin from '../../Components/SocialSignin';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import useToken from '../../Components/Hooks/useToken';
+
 
 
 const Login = () => {
@@ -22,42 +23,25 @@ const Login = () => {
 
     let from = location.state?.from?.pathname || "/";
 
-   
-
     const login = e => {
         e.preventDefault()
         const email = e.target.email.value
         const password = e.target.password.value
         signInWithEmailAndPassword(email, password)
-        if (email) {
-
-            fetch(`http://localhost:5000/user/${email}`, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify({ email })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.success) {
-                        localStorage.setItem('accessToken', data.accessToken);
-
-                    }
-              
-                })
-        }
-
     }
-
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate]);
 
     const resetPassword = async () => {
         await sendPasswordResetEmail(email);
         if (email) {
-            toast.success("Eamil Sent !")
+            toast.success("Email Sent !")
         }
         else {
-            toast.error("Eamil Not Found")
+            toast.error("Email Not Found")
         }
     }
 
@@ -70,9 +54,6 @@ const Login = () => {
     }
     if (loading) {
         return <progress className="progress w-56 mx-auto mb-96"></progress>;
-    }
-    if (token) {
-        navigate(from, { replace: true });
     }
 
 

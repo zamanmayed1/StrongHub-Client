@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 const ManageProducts = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://stronghub.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, [])
+    }, [products])
     const deleteProduct = (id) => {
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://stronghub.herokuapp.com/product/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -36,7 +36,26 @@ const ManageProducts = () => {
                                 <th><img className='w-8 h-8' src={product.img} alt="" /></th>
                                 <td>{product.productname}</td>
                                 <td>{product.availableQuantity <= 0 ? <span className='text-red-500'>Out Of Stock</span> : product.availableQuantity}</td>
-                                <td><button onClick={() => deleteProduct(product._id)} className='btn'>Delete</button></td>
+                                <td>
+
+
+
+                                    <label for="my-modal-6" class="btn modal-button">Delete</label>
+
+                                    <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+                                    <div class="modal modal-bottom sm:modal-middle">
+                                        <div class="modal-box">
+                                            <h3 class="font-bold text-lg">Are You Sure</h3>
+
+                                            <div class="modal-action">
+                                                <label onClick={() => deleteProduct(product._id)} for="my-modal-6" class="btn">Yes</label>
+                                                <label for="my-modal-6" class="btn">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </td>
+
                             </tr>)
                         }
 

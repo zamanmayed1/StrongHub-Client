@@ -27,7 +27,7 @@ const Signup = () => {
     if (loading) {
         return <progress className="progress w-56 mx-auto mb-96"></progress>;
     }
-    if (token) {
+    if (newuser || Googleuser) {
         navigate(from, { replace: true });
     }
 

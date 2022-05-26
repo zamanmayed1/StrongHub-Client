@@ -34,6 +34,8 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+            
+                
                 {
                     user?.email ? <button onClick={() => {
                         signOut(auth)

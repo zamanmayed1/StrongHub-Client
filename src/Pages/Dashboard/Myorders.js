@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import auth from '../../Firebase/Firebase.init';
 
 const Myorders = () => {
     const [user] = useAuthState(auth)
     const [orders, setOrders] = useState()
+
+    const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:5000/myorder/${user?.email}`)
+        fetch(`https://stronghub.herokuapp.com/myorder/${user?.email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [orders])
 
     const deleteorder = (id) => {
-    
-        fetch(`http://localhost:5000/order/${id}`, {
+
+        fetch(`https://stronghub.herokuapp.com/order/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
@@ -44,10 +47,13 @@ const Myorders = () => {
                                 <td>{order.productQuantity}</td>
                                 <td>{order.phone}</td>
                                 <td>{order.email}</td>
+
+
                                 <td>
-                                    <div className="badge badge-accent">Unpaid</div>
-                                    <button onClick={() => deleteorder(order._id)} className='btn-secondary btn-sm mx-2 btn'>Cancel</button>
+                                    <button className='btn mx-2'>Pay</button>
+                                    <button onClick={() => { deleteorder(order?._id) }} className='btn' >Cancel</button>
                                 </td>
+
 
 
 

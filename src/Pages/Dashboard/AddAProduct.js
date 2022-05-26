@@ -35,7 +35,7 @@ const AddAProduct = () => {
                         productname, description, price, minimumQuantity, img, availableQuantity, name, email
                     }
                     // send to your database
-                    const url = 'http://localhost:5000/addproduct'
+                    const url = 'https://stronghub.herokuapp.com/addproduct'
                     fetch(url, {
                         method: 'POST',
                         headers: {

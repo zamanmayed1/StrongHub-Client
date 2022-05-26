@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react';
 const MakeAdmin = () => {
     const [users, setUsers] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://stronghub.herokuapp.com/users')
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [users])
     const makeAdmin = (email) => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://stronghub.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Barer ${localStorage.getItem('accessToken')}`

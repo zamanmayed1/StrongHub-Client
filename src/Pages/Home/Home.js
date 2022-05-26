@@ -20,6 +20,7 @@ const Home = () => {
             <OurTeam />
             <OurPartners />
 
+
         </div>
     );
 };
