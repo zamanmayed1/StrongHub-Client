@@ -1,7 +1,7 @@
 # Live site like : [https://stronghub-9986c.web.app/]
 
  # Website name : Strong Hub by zaman 
- * This website based on Car related any people can visited and saw some product
+ * This website based on Hammer or Steel related any people can visited and saw some product
 * Tailwind base Website and based of firebase
 * Deploy in heroku
 * Tailwind base Website
